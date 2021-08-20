@@ -24,10 +24,15 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
-init_state = NodePath("Idle")
+init_state = NodePath("FollowPlayer")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
 
 [node name="FollowPlayer" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
+
+[node name="UpdatePath" type="Timer" parent="StateMachine/FollowPlayer"]
+wait_time = 0.6
+
+[connection signal="timeout" from="StateMachine/FollowPlayer/UpdatePath" to="StateMachine/FollowPlayer" method="_on_UpdatePath_timeout"]

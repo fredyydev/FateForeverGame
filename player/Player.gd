@@ -7,10 +7,11 @@ func _process(_delta):
 	#Set global variable for player position
 	PlayerGlobal.player_position = self.global_position
 	#Check if the player is walking (by using input)
-	is_walking = (Input.is_action_pressed("up") or
-	Input.is_action_pressed("down") or
-	Input.is_action_pressed("left") or
-	Input.is_action_pressed("right") 
+	is_walking = (
+		Input.is_action_pressed("up") or
+		Input.is_action_pressed("down") or
+		Input.is_action_pressed("left") or
+		Input.is_action_pressed("right") 
 	)
 	#Look at mouse position(unless if dashing)
 	if not is_dashing:
