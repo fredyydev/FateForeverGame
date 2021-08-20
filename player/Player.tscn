@@ -44,7 +44,11 @@ script = ExtResource( 3 )
 
 [node name="Running" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
-walk_speed = 60.0
+walk_speed = 80.0
+
+[node name="DashCooldown" type="Timer" parent="StateMachine/Running"]
+wait_time = 0.7
+one_shot = true
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
@@ -54,4 +58,5 @@ dash_speed = 300.0
 wait_time = 0.186
 one_shot = true
 
+[connection signal="timeout" from="StateMachine/Running/DashCooldown" to="StateMachine/Running" method="_on_DashCooldown_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashDuration" to="StateMachine/Dash" method="_on_DashDuration_timeout"]

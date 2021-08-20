@@ -4,42 +4,46 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 
 [node name="Main" type="Node2D"]
-rotation = -0.0779871
 
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( 152.435, 113.208 )
-rotation = 0.448655
+rotation = -0.522635
 texture = ExtResource( 1 )
 
 [node name="icon2" type="Sprite" parent="."]
 position = Vector2( 1181.22, 527.409 )
-rotation = 0.448655
+rotation = -0.394919
 texture = ExtResource( 1 )
 
 [node name="icon3" type="Sprite" parent="."]
-position = Vector2( -63.9517, 202.313 )
-rotation = 0.448655
+position = Vector2( -61.4319, 203.573 )
+rotation = 0.0979074
 texture = ExtResource( 1 )
 
 [node name="icon4" type="Sprite" parent="."]
 position = Vector2( 797.11, 654.685 )
-rotation = 0.448655
+rotation = -0.471736
 texture = ExtResource( 1 )
 
 [node name="icon5" type="Sprite" parent="."]
-position = Vector2( 442.454, -44.2577 )
-rotation = 0.448655
+position = Vector2( 441.454, -44.7577 )
+rotation = -0.229975
+scale = Vector2( 0.973135, 0.977663 )
 texture = ExtResource( 1 )
 
 [node name="icon6" type="Sprite" parent="."]
 position = Vector2( 10.7498, 527.009 )
-rotation = 0.448655
+rotation = -0.91248
 texture = ExtResource( 1 )
 
 [node name="icon7" type="Sprite" parent="."]
 position = Vector2( 873.159, 6.91029 )
-rotation = 0.448655
+rotation = 0.298743
 texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 596.354, 263.501 )
+
+[node name="Navigation2D" type="Navigation2D" parent="." groups=[
+"Navigation",
+]]
