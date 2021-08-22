@@ -7,7 +7,7 @@ var nav2D: Navigation2D
 var nav_path: PoolVector2Array
 
 func enter(_md := {}):
-	if owner.get_tree().has_group("Navigation"):
+	if soldier.get_tree().has_group("Navigation"):
 		nav2D = soldier.owner.get_node("Navigation2D")
 	$UpdatePath.start()
 
