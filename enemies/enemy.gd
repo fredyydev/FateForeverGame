@@ -18,5 +18,5 @@ func take_damage(damage: float):
 
 #virtual function
 func die():
-	pass
+	queue_free()
 

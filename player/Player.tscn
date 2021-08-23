@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/fate_guy_head.png" type="Texture" id=1]
 [ext_resource path="res://state_machine/state_machine.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://state_machine/player_states/Running.gd" type="Script" id=5]
 [ext_resource path="res://state_machine/player_states/Dash.gd" type="Script" id=6]
 [ext_resource path="res://player/fate_guy_arms.png" type="Texture" id=7]
+[ext_resource path="res://weapons/player_shotty/player_shotty.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 22.2074
@@ -57,6 +58,10 @@ dash_speed = 300.0
 [node name="DashDuration" type="Timer" parent="StateMachine/Dash"]
 wait_time = 0.186
 one_shot = true
+
+[node name="PlayerShotty" parent="." instance=ExtResource( 8 )]
+position = Vector2( 55.0056, -0.33371 )
+scale = Vector2( 1.98201, 1.5388 )
 
 [connection signal="timeout" from="StateMachine/Running/DashCooldown" to="StateMachine/Running" method="_on_DashCooldown_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashDuration" to="StateMachine/Dash" method="_on_DashDuration_timeout"]
