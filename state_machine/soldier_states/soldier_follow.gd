@@ -41,7 +41,7 @@ func move_to_path():
 	if soldier.global_position.distance_to(pl_pos) > 50:
 		var _coll = soldier.move_and_slide(_move_direction.normalized() * speed * 5, Vector2.ZERO, false, 15)
 
-func update(_delta):
+func physics_update(_delta):
 	pl_pos = PlayerGlobal.player_position
 	soldier.look_at(pl_pos)
 	move_to_path()

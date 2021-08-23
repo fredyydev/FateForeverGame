@@ -8,7 +8,7 @@ func enter(_md := {}):
 func exit():
 	$wait_attack.stop()
 
-func update(_delta):
+func physics_update(_delta):
 	soldier.look_at(PlayerGlobal.player_position)
 
 func _on_wait_attack_timeout():

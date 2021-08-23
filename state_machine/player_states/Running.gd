@@ -3,7 +3,7 @@ extends PlayerState
 export var walk_speed := 100.0
 var can_dash := true
 
-func update(_delta):
+func physics_update(_delta):
 	if not player.is_walking:
 		state_machine.transition_to("Idle")
 	if Input.is_action_just_pressed("Dash") and can_dash:

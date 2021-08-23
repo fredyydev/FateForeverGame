@@ -11,9 +11,6 @@ outlines = [ PoolVector2Array( 471.105, -191.999, 111.201, -62.5009, -149.477, 3
 
 [node name="Main" type="Node2D"]
 
-[node name="Soldier" parent="." instance=ExtResource( 3 )]
-position = Vector2( 184.685, 281.184 )
-
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( 152.435, 113.208 )
 rotation = -0.522635
@@ -41,11 +38,6 @@ rotation = -0.229975
 scale = Vector2( 0.973135, 0.977663 )
 texture = ExtResource( 1 )
 
-[node name="icon6" type="Sprite" parent="."]
-position = Vector2( 10.7498, 527.009 )
-rotation = -0.91248
-texture = ExtResource( 1 )
-
 [node name="icon7" type="Sprite" parent="."]
 position = Vector2( 873.159, 6.91029 )
 rotation = 0.298743
@@ -61,11 +53,14 @@ position = Vector2( 596.354, 263.501 )
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
 
+[node name="Soldier" parent="." instance=ExtResource( 3 )]
+position = Vector2( 113.606, 267.156 )
+
 [node name="Soldier2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 256.8, 499.693 )
+position = Vector2( 359.606, 595.156 )
 
 [node name="Soldier3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 325.058, 142.528 )
+position = Vector2( 577.606, -134.844 )
 
 [node name="Soldier4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 596.503, -1.92575 )
+position = Vector2( 1013.61, 141.156 )

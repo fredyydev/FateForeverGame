@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Entity
 class_name Enemy
 
 export var initial_health := 100.0

@@ -15,8 +15,8 @@ pallets = NodePath("pallets_spawn")
 position = Vector2( 16.5015, 0.204953 )
 
 [node name="pallet" type="Node2D" parent="pallets_spawn"]
-position = Vector2( -0.0522537, -2.59833 )
-rotation = -0.342192
+position = Vector2( -0.037, -2.598 )
+rotation = -0.331613
 
 [node name="icon" type="Sprite" parent="pallets_spawn/pallet"]
 visible = false

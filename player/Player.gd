@@ -1,5 +1,6 @@
-extends KinematicBody2D
+extends Entity
 class_name Player
+
 var is_walking : bool
 var is_dashing: bool
 var health: int
@@ -8,7 +9,7 @@ var player_stats := load("res://player/player_stats.tres")
 func _ready():
 	health = player_stats.health
 
-func _process(_delta):
+func _physics_process(delta):
 	if health <= 0:
 		die()
 	#Set global variable for player position

@@ -11,7 +11,7 @@ func enter(md := {}):
 func exit():
 	player.is_dashing = false
 
-func update(_delta):
+func physics_update(_delta):
 	var _coll = player.move_and_slide(dash_dir * dash_speed * 5)
 
 func _on_DashDuration_timeout():
