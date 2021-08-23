@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://weapons/soldier_shotty/soldier_shotty.gd" type="Script" id=1]
+[ext_resource path="res://weapons/player_shotty/shotgun.png" type="Texture" id=2]
+[ext_resource path="res://weapons/soldier_shotty/SgSoldierPallet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[node name="SoldierShotty" type="Node2D"]
+scale = Vector2( 1, 0.851 )
+script = ExtResource( 1 )
+pallet_scene = ExtResource( 3 )
+pallets = NodePath("pallets_spawn")
+
+[node name="pallets_spawn" type="Node2D" parent="."]
+position = Vector2( 16.5015, 0.204953 )
+
+[node name="pallet" type="Node2D" parent="pallets_spawn"]
+position = Vector2( -0.0522537, -2.59833 )
+rotation = -0.342192
+
+[node name="icon" type="Sprite" parent="pallets_spawn/pallet"]
+visible = false
+position = Vector2( 15.9907, -0.365875 )
+scale = Vector2( 0.51418, -0.0368499 )
+texture = ExtResource( 4 )
+
+[node name="pallet2" type="Node2D" parent="pallets_spawn"]
+position = Vector2( -0.0358238, -1.66562 )
+rotation = -0.149367
+
+[node name="icon" type="Sprite" parent="pallets_spawn/pallet2"]
+visible = false
+position = Vector2( 15.9907, -0.365875 )
+scale = Vector2( 0.51418, -0.0368499 )
+texture = ExtResource( 4 )
+
+[node name="pallet3" type="Node2D" parent="pallets_spawn"]
+position = Vector2( -0.0313303, 0.370953 )
+
+[node name="icon" type="Sprite" parent="pallets_spawn/pallet3"]
+visible = false
+position = Vector2( 15.9907, -0.365875 )
+scale = Vector2( 0.51418, -0.0368499 )
+texture = ExtResource( 4 )
+
+[node name="pallet4" type="Node2D" parent="pallets_spawn"]
+position = Vector2( -0.0625041, 1.71651 )
+rotation = 0.12468
+
+[node name="icon" type="Sprite" parent="pallets_spawn/pallet4"]
+visible = false
+position = Vector2( 15.9907, -0.365875 )
+scale = Vector2( 0.51418, -0.0368499 )
+texture = ExtResource( 4 )
+
+[node name="pallet5" type="Node2D" parent="pallets_spawn"]
+position = Vector2( 0.0603104, 3.65128 )
+rotation = 0.230201
+
+[node name="icon" type="Sprite" parent="pallets_spawn/pallet5"]
+visible = false
+position = Vector2( 15.9907, -0.365875 )
+scale = Vector2( 0.51418, -0.0368499 )
+texture = ExtResource( 4 )
+
+[node name="shotgun_sprite" type="Sprite" parent="."]
+position = Vector2( 2.503, 0 )
+texture = ExtResource( 2 )

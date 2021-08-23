@@ -12,7 +12,9 @@ func _process(_delta):
 		var collider:Node = _collision.collider
 		if collider is Enemy:
 			#if collides with enemy, enemy takes damage
-			collider.take_damage(damage)	
+			collider.take_damage(damage)
+		elif collider is Player:
+			collider.take_damage(damage)
 		if not collider.is_in_group("bullets"):
 			queue_free()
 

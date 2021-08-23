@@ -6,4 +6,5 @@ func _ready():
 	print(error_message)
 
 func on_player_spotted():
-	state_machine.transition_to("FollowPlayer")
+	if state_machine.current_state == self:
+		state_machine.transition_to("FollowPlayer")

@@ -5,14 +5,19 @@ export var speed := 50.0
 onready var pl_pos = PlayerGlobal.player_position
 var nav2D: Navigation2D
 var nav_path: PoolVector2Array
+var rng := RandomNumberGenerator.new()
 
 func enter(_md := {}):
+	rng.randomize()
+	$AttackRandom.wait_time = rng.randf_range(0.5,2)
+	$AttackRandom.start()
 	if soldier.get_tree().has_group("Navigation"):
 		nav2D = soldier.owner.get_node("Navigation2D")
 	$UpdatePath.start()
 
 func exit():
 	$UpdatePath.stop()
+	$AttackRandom.stop()
 
 func _on_UpdatePath_timeout():
 	if not owner.get_tree().has_group("Navigation"):
@@ -40,3 +45,7 @@ func update(_delta):
 	pl_pos = PlayerGlobal.player_position
 	soldier.look_at(pl_pos)
 	move_to_path()
+
+
+func _on_AttackRandom_timeout():
+	state_machine.transition_to("Attack")

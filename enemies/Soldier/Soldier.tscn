@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://enemies/Soldier/soldier_sprite.png" type="Texture" id=1]
 [ext_resource path="res://enemies/Soldier/soldier.gd" type="Script" id=2]
 [ext_resource path="res://state_machine/state_machine.gd" type="Script" id=3]
 [ext_resource path="res://state_machine/soldier_states/soldier_idle.gd" type="Script" id=4]
 [ext_resource path="res://state_machine/soldier_states/soldier_follow.gd" type="Script" id=5]
+[ext_resource path="res://weapons/soldier_shotty/soldier_shotty.tscn" type="PackedScene" id=6]
+[ext_resource path="res://state_machine/soldier_states/soldier_attack.gd" type="Script" id=7]
+[ext_resource path="res://state_machine/soldier_states/soldier_stagger.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.6071
@@ -12,6 +15,7 @@ height = 19.8637
 
 [node name="Soldier" type="KinematicBody2D"]
 script = ExtResource( 2 )
+shotgun = NodePath("SoldierShotty")
 
 [node name="Placeholder" type="Sprite" parent="."]
 rotation = 1.57079
@@ -35,4 +39,27 @@ script = ExtResource( 5 )
 [node name="UpdatePath" type="Timer" parent="StateMachine/FollowPlayer"]
 wait_time = 0.6
 
+[node name="AttackRandom" type="Timer" parent="StateMachine/FollowPlayer"]
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+
+[node name="wait_attack" type="Timer" parent="StateMachine/Attack"]
+wait_time = 0.171
+one_shot = true
+
+[node name="Stagger" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="TimeStaggered" type="Timer" parent="StateMachine/Stagger"]
+wait_time = 0.449
+one_shot = true
+
+[node name="SoldierShotty" parent="." instance=ExtResource( 6 )]
+position = Vector2( 53.1416, 0.618317 )
+scale = Vector2( 1.79704, 1.24249 )
+
 [connection signal="timeout" from="StateMachine/FollowPlayer/UpdatePath" to="StateMachine/FollowPlayer" method="_on_UpdatePath_timeout"]
+[connection signal="timeout" from="StateMachine/FollowPlayer/AttackRandom" to="StateMachine/FollowPlayer" method="_on_AttackRandom_timeout"]
+[connection signal="timeout" from="StateMachine/Attack/wait_attack" to="StateMachine/Attack" method="_on_wait_attack_timeout"]
+[connection signal="timeout" from="StateMachine/Stagger/TimeStaggered" to="StateMachine/Stagger" method="_on_TimeStaggered_timeout"]

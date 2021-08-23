@@ -16,7 +16,10 @@ func take_damage(damage: float):
 	if current_health <= 0:
 		emit_signal("died")
 
-#virtual function
+#virtual
+func attack():
+	pass
+
 func die():
 	queue_free()
 

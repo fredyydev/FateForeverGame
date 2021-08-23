@@ -9,7 +9,8 @@ signal transitioned_to
 func _ready():
 	yield(owner, "ready")
 	current_state.enter()
-	current_state.state_machine = self
+	for child in get_children():
+		child.state_machine = self
 
 func _process(delta):
 	current_state.update(delta)
@@ -23,7 +24,6 @@ func _unhandled_input(event):
 func transition_to(state: String, metadata := {}):
 	current_state.exit()
 	current_state = get_node(state)
-	current_state.state_machine = self
 	emit_signal("transitioned_to", state)
 	current_state.enter(metadata)
 	

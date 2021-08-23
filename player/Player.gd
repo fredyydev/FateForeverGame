@@ -2,8 +2,15 @@ extends KinematicBody2D
 class_name Player
 var is_walking : bool
 var is_dashing: bool
+var health: int
+var player_stats := load("res://player/player_stats.tres")
+
+func _ready():
+	health = player_stats.health
 
 func _process(_delta):
+	if health <= 0:
+		die()
 	#Set global variable for player position
 	PlayerGlobal.player_position = self.global_position
 	#Check if the player is walking (by using input)
@@ -26,3 +33,10 @@ func walk(speed: float):
 	var walk_dir = walk_direction()
 
 	var _coll = move_and_slide(walk_dir.normalized() * speed)
+
+func take_damage(damage):
+	health -= damage
+	player_stats.health = health
+
+func die():
+	get_tree().quit()

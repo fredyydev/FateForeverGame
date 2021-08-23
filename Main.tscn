@@ -60,3 +60,12 @@ position = Vector2( 596.354, 263.501 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 navpoly = SubResource( 1 )
+
+[node name="Soldier2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 256.8, 499.693 )
+
+[node name="Soldier3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 325.058, 142.528 )
+
+[node name="Soldier4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 596.503, -1.92575 )
