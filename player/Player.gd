@@ -9,7 +9,7 @@ var player_stats := load("res://player/player_stats.tres")
 func _ready():
 	health = player_stats.health
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if health <= 0:
 		die()
 	#Set global variable for player position
