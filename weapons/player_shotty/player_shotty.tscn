@@ -1,12 +1,41 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://weapons/player_shotty/player_shotty.gd" type="Script" id=1]
 [ext_resource path="res://weapons/player_shotty/shotgun.png" type="Texture" id=2]
 [ext_resource path="res://weapons/player_shotty/SgPallet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 
+[sub_resource type="Animation" id=1]
+resource_name = "shoot"
+length = 0.21
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0534081, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 55.006, -1.823 ), Vector2( 51.882, -1.823 ), Vector2( 55.006, -1.823 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0522721, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.98201, 1.5388 ), Vector2( 1.76419, 1.5388 ), Vector2( 1.98201, 1.5388 ) ]
+}
+
 [node name="PlayerShotty" type="Node2D"]
-scale = Vector2( 1, 0.851 )
+position = Vector2( 55.006, -1.823 )
+scale = Vector2( 1.98201, 1.5388 )
 script = ExtResource( 1 )
 pallet_scene = ExtResource( 3 )
 pallets = NodePath("pallets_spawn")
@@ -70,5 +99,8 @@ texture = ExtResource( 2 )
 [node name="FireRate" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
+
+[node name="shot_animation" type="AnimationPlayer" parent="."]
+anims/shoot = SubResource( 1 )
 
 [connection signal="timeout" from="FireRate" to="." method="_on_FireRate_timeout"]

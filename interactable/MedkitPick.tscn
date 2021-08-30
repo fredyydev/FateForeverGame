@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interactable/health_pick.gd" type="Script" id=1]
+[ext_resource path="res://interactable/health_pick_sprite.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23.1397, 15.1389 )
+
+[node name="HealthPick" type="Area2D"]
+scale = Vector2( 0.868, 0.942 )
+z_index = -1
+script = ExtResource( 1 )
+health_amount = 50
+
+[node name="HealthSprite" type="Sprite" parent="."]
+scale = Vector2( 1.69899, 1.84903 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.05946, 4.50272 )
+shape = SubResource( 1 )
+
+[connection signal="on_player_interacted" from="." to="." method="_on_HealthPick_on_player_interacted"]

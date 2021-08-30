@@ -7,6 +7,7 @@ func enter(md := {}):
 	dash_dir = md["dir"]
 	player.is_dashing = true
 	$DashDuration.start()
+	player.anim.play("Dash")
 
 func exit():
 	player.is_dashing = false

@@ -3,6 +3,10 @@ extends PlayerState
 export var walk_speed := 100.0
 var can_dash := true
 
+func enter(_md := {}):
+	player.anim.play("Running")
+
+
 func physics_update(_delta):
 	if not player.is_walking:
 		state_machine.transition_to("Idle")

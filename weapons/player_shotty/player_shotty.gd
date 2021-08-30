@@ -9,11 +9,14 @@ func _init():
 
 func _process(_delta):
 	if Input.is_action_pressed("shoot") and can_fire:
-		shoot()
+		$FireRate.start()
+		if current_ammo > 0:
+			shoot()
+
 
 func shoot():
 	.shoot()
-	$FireRate.start()
+	$shot_animation.play("shoot")
 	can_fire = false
 	for child in pallets.get_children():
 		var pallet: Node2D = pallet_scene.instance()
@@ -25,5 +28,4 @@ func shoot():
 
 
 func _on_FireRate_timeout():
-	if current_ammo > 0:
-		can_fire = true
+	can_fire = true

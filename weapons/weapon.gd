@@ -10,4 +10,5 @@ func shoot():
 		can_fire = false
 	current_ammo -= 1
 	PlayerGlobal.emit_signal("player_spotted")
+	print(current_ammo)
 
