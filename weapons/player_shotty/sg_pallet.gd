@@ -14,7 +14,7 @@ func _physics_process(_delta):
 		if collider is Entity:
 			#if collides with enemy, enemy takes damage
 			collider.take_damage(damage)
-			var blood: AnimatedSprite = blood_scene.instance()
+			var blood: RigidBody2D = blood_scene.instance()
 			collider.owner.add_child(blood)
 			blood.z_index = -2
 			blood.global_position = collider.global_position 

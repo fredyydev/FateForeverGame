@@ -8,7 +8,7 @@
 ]]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
-speed = 40
+speed = 45
 damage = 30
 
 [node name="pallet_sprite" type="Sprite" parent="."]

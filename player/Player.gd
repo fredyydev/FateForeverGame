@@ -50,4 +50,5 @@ func add_health(amount):
 	print(health)
 
 func die():
+# warning-ignore:return_value_discarded
 	get_tree().quit()

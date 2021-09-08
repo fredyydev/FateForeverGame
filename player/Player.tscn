@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/fate_guy_head.png" type="Texture" id=1]
 [ext_resource path="res://state_machine/state_machine.gd" type="Script" id=2]
@@ -8,12 +8,13 @@
 [ext_resource path="res://state_machine/player_states/Dash.gd" type="Script" id=6]
 [ext_resource path="res://player/fate_guy_arms.png" type="Texture" id=7]
 [ext_resource path="res://weapons/player_shotty/player_shotty.tscn" type="PackedScene" id=8]
+[ext_resource path="res://player/1586320.jpg" type="Texture" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 22.2074
 height = 45.3458
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Dash"
 length = 0.28
 tracks/0/type = "value"
@@ -41,8 +42,7 @@ tracks/1/keys = {
 "values": [ Vector2( 3.81736, 4.80685 ), Vector2( 3.81736, 6.71 ), Vector2( 3.81736, 4.80685 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Idle"
+[sub_resource type="Animation" id=3]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -118,8 +118,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1.98201, 1.5388 ), Vector2( 1.982, 1.851 ), Vector2( 1.98201, 1.5388 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Running"
+[sub_resource type="Animation" id=4]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -185,6 +184,7 @@ tracks/4/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 1.00006, 1.00002 )
+collision_mask = 3
 script = ExtResource( 4 )
 anim = NodePath("AnimationPlayer")
 
@@ -197,7 +197,7 @@ smoothing_speed = 7.0
 [node name="PlayerSprite" type="Sprite" parent="."]
 position = Vector2( 6.80035, 0.206039 )
 rotation = 1.50149
-scale = Vector2( 3.81736, 6.62349 )
+scale = Vector2( 3.817, 5.564 )
 texture = ExtResource( 7 )
 
 [node name="doot_guy_head" type="Sprite" parent="PlayerSprite"]
@@ -218,7 +218,6 @@ script = ExtResource( 3 )
 
 [node name="Running" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
-walk_speed = 80.0
 
 [node name="DashCooldown" type="Timer" parent="StateMachine/Running"]
 wait_time = 0.7
@@ -226,19 +225,24 @@ one_shot = true
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
-dash_speed = 300.0
+dash_speed = 350.0
 
 [node name="DashDuration" type="Timer" parent="StateMachine/Dash"]
-wait_time = 0.186
+wait_time = 0.188
 one_shot = true
 
 [node name="PlayerShotty" parent="." instance=ExtResource( 8 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
-anims/Dash = SubResource( 4 )
-anims/Idle = SubResource( 2 )
-anims/Running = SubResource( 3 )
+anims/Dash = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/Running = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 9 )
+texture_scale = 1.16
+shadow_enabled = true
 
 [connection signal="timeout" from="StateMachine/Running/DashCooldown" to="StateMachine/Running" method="_on_DashCooldown_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashDuration" to="StateMachine/Dash" method="_on_DashDuration_timeout"]

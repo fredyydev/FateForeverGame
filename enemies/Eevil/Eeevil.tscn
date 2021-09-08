@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://enemies/Eevil/Eeevil.gd" type="Script" id=1]
+[ext_resource path="res://enemies/Eevil/eevil_sprite.png" type="Texture" id=2]
+[ext_resource path="res://state_machine/state_machine.gd" type="Script" id=3]
+[ext_resource path="res://state_machine/eevil_states/eev_idle.gd" type="Script" id=4]
+[ext_resource path="res://state_machine/eevil_states/eev_follow.gd" type="Script" id=5]
+[ext_resource path="res://enemies/Eevil/EevilProjectile.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 19.8649
+height = 43.7047
+
+[node name="Eeevil" type="KinematicBody2D"]
+script = ExtResource( 1 )
+initial_health = 170.0
+projectile_scene = ExtResource( 6 )
+
+[node name="icon" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 13.74, 1.20885 )
+shape = SubResource( 1 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+init_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="FollowPlayer" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+speed = 70.0
+
+[node name="UpdatePath" type="Timer" parent="StateMachine/FollowPlayer"]
+wait_time = 0.6
+
+[node name="AttackRandom" type="Timer" parent="StateMachine/FollowPlayer"]
+
+[node name="bullet_spawn" type="Node2D" parent="."]
+position = Vector2( 58.6899, 0.707123 )
+
+[connection signal="timeout" from="StateMachine/FollowPlayer/UpdatePath" to="StateMachine/FollowPlayer" method="_on_UpdatePath_timeout"]
+[connection signal="timeout" from="StateMachine/FollowPlayer/AttackRandom" to="StateMachine/FollowPlayer" method="_on_AttackRandom_timeout"]

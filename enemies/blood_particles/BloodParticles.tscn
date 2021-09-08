@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://enemies/blood_particles/blood_4.png" type="Texture" id=1]
 [ext_resource path="res://enemies/blood_particles/blood_2.png" type="Texture" id=2]
@@ -14,13 +14,28 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[node name="BloodParticles" type="AnimatedSprite"]
-scale = Vector2( 3, 3 )
-frames = SubResource( 1 )
+[sub_resource type="CircleShape2D" id=2]
+radius = 28.1619
+
+[node name="BloodBody" type="RigidBody2D"]
+collision_layer = 2048
+collision_mask = 16
+mode = 2
+mass = 0.00102041
+gravity_scale = 0.0
 script = ExtResource( 5 )
 
-[node name="AnimDuration" type="Timer" parent="."]
+[node name="BloodParticles" type="AnimatedSprite" parent="."]
+scale = Vector2( 3, 3 )
+z_index = -5
+frames = SubResource( 1 )
+
+[node name="AnimDuration" type="Timer" parent="BloodParticles"]
 wait_time = 0.247
 one_shot = true
 
-[connection signal="timeout" from="AnimDuration" to="." method="_on_AnimDuration_timeout"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.10223, 2.52269 )
+shape = SubResource( 2 )
+
+[connection signal="timeout" from="BloodParticles/AnimDuration" to="." method="_on_AnimDuration_timeout"]

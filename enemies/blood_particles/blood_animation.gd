@@ -1,17 +1,18 @@
-extends AnimatedSprite
+extends RigidBody2D
 
 var animate := true
 var rng := RandomNumberGenerator.new()
+onready var anim = $BloodParticles/AnimDuration
 
 func play(_string = "default", _boolean = false):
-	.play()
+	$BloodParticles.play()
 	rng.randomize()
-	$AnimDuration.wait_time = rng.randf_range(0.1, 0.2666)
-	$AnimDuration.start()
+	anim.wait_time = rng.randf_range(0.1, 0.2666)
+	anim.start()
 
 func _physics_process(_delta):
 	if animate:
-		self.global_position += transform.x * 4
+		self.global_position += transform.x * 10
 
 
 func _on_AnimDuration_timeout():

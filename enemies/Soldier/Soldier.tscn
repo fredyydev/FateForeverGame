@@ -17,6 +17,7 @@ height = 19.8637
 radius = 441.678
 
 [node name="Soldier" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 2 )
 shotgun = NodePath("SoldierShotty")
 
