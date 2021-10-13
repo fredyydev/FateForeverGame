@@ -13,7 +13,7 @@ func exit():
 	player.is_dashing = false
 
 func physics_update(_delta):
-	var _coll = player.move_and_slide(dash_dir * dash_speed * 5)
+	var _coll = player.move_and_slide(dash_dir.normalized() * dash_speed * 5)
 
 func _on_DashDuration_timeout():
 	state_machine.transition_to("Running")

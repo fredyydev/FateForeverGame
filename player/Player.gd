@@ -3,11 +3,14 @@ class_name Player
 
 var is_walking : bool
 var is_dashing: bool
+var has_blue_key: bool
+var has_red_key: bool
 var health: int
 var player_stats := load("res://player/player_stats.tres")
 export(NodePath) onready var anim = get_node(anim) as AnimationPlayer
 
 func _ready():
+	player_stats.reset()
 	health = player_stats.health
 	print(health)
 

@@ -8,12 +8,14 @@ var nav_path: PoolVector2Array
 var rng := RandomNumberGenerator.new()
 
 func enter(_md := {}):
+	soldier.play_animation("soldier_run")
 	rng.randomize()
-	$AttackRandom.wait_time = rng.randf_range(0.5,2)
+	$AttackRandom.wait_time = rng.randf_range(0.7,2)
 	$AttackRandom.start()
 	if soldier.get_tree().has_group("Navigation"):
 		nav2D = soldier.owner.get_node("Navigation2D")
 	$UpdatePath.start()
+
 
 func exit():
 	$UpdatePath.stop()

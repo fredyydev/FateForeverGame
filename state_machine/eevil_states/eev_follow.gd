@@ -1,6 +1,6 @@
 extends State
 
-onready var eevil := owner as Eevil
+onready var eevil := owner as Eeevil
 export var speed := 65.0
 onready var pl_pos = PlayerGlobal.player_position
 var nav2D: Navigation2D

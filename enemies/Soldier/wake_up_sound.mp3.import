@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wake_up_sound.mp3-bc5f5cd8d1c400840c348b9a17439812.mp3str"
+
+[deps]
+
+source_file="res://enemies/Soldier/wake_up_sound.mp3"
+dest_files=[ "res://.import/wake_up_sound.mp3-bc5f5cd8d1c400840c348b9a17439812.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

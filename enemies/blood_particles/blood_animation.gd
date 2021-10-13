@@ -7,7 +7,12 @@ onready var anim = $BloodParticles/AnimDuration
 func play(_string = "default", _boolean = false):
 	$BloodParticles.play()
 	rng.randomize()
-	anim.wait_time = rng.randf_range(0.1, 0.2666)
+	
+	self.position.x += rng.randf_range(-30, 30)
+	self.position.y += rng.randf_range(-30, 30)
+	self.rotation += rng.randf_range(-0.03, 0.03)
+	
+	anim.wait_time = rng.randf_range(0.1, 0.3666)
 	anim.start()
 
 func _physics_process(_delta):

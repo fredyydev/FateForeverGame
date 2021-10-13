@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wake_up_sound.mp3-59d860c5a2ebefb0c4f1c243870cb74b.mp3str"
+
+[deps]
+
+source_file="res://enemies/Eevil/wake_up_sound.mp3"
+dest_files=[ "res://.import/wake_up_sound.mp3-59d860c5a2ebefb0c4f1c243870cb74b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/reticle.png" type="Texture" id=1]
+[ext_resource path="res://player/Reticle.gd" type="Script" id=2]
+
+[node name="Reticle" type="Sprite"]
+position = Vector2( -0.157486, 0 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 1 )

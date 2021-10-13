@@ -1,13 +1,70 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interactable/health_pick.gd" type="Script" id=1]
 [ext_resource path="res://interactable/health_pick_sprite.png" type="Texture" id=2]
+[ext_resource path="res://player/1586320.jpg" type="Texture" id=3]
+[ext_resource path="res://interactable/health_pickup.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.1397, 15.1389 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "pickup"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.807786 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("1586320:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( -0.0014352, 0.087547, 0.223891 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.709804, 0.898039, 1, 0 ), Color( 0.486275, 1, 0.101961, 0.909804 ), Color( 0.709804, 0.898039, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("sound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.000717599 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HealthSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0184996 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
 [node name="HealthPick" type="Area2D"]
-scale = Vector2( 0.868, 0.942 )
+scale = Vector2( 1, 1.2 )
 z_index = -1
 script = ExtResource( 1 )
 health_amount = 50
@@ -19,5 +76,16 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.05946, 4.50272 )
 shape = SubResource( 1 )
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/pickup = SubResource( 2 )
+
+[node name="1586320" type="Sprite" parent="."]
+modulate = Color( 0.706199, 0.899684, 0.985515, 0.0146743 )
+position = Vector2( -25.3444, -3.25 )
+texture = ExtResource( 3 )
 
 [connection signal="on_player_interacted" from="." to="." method="_on_HealthPick_on_player_interacted"]

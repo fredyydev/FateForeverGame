@@ -17,14 +17,13 @@ func _process(_delta):
 func shoot():
 	.shoot()
 	$shot_animation.play("shoot")
+	$Gun_Sound.play()
 	can_fire = false
 	for child in pallets.get_children():
 		var pallet: Node2D = pallet_scene.instance()
 		pallet.global_rotation_degrees = child.global_rotation_degrees
 		pallet.global_position = child.global_position
 		owner.owner.add_child(pallet)
-
-
 
 
 func _on_FireRate_timeout():

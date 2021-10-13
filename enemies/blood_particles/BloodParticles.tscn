@@ -8,7 +8,7 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ) ],
 "loop": false,
 "name": "default",
 "speed": 20.0
@@ -29,6 +29,7 @@ script = ExtResource( 5 )
 scale = Vector2( 3, 3 )
 z_index = -5
 frames = SubResource( 1 )
+speed_scale = 1.2
 
 [node name="AnimDuration" type="Timer" parent="BloodParticles"]
 wait_time = 0.247

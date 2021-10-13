@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fire_sound.mp3-0a285e0395e95df14d5b09ec67c574b0.mp3str"
+
+[deps]
+
+source_file="res://enemies/Eevil/fire_sound.mp3"
+dest_files=[ "res://.import/fire_sound.mp3-0a285e0395e95df14d5b09ec67c574b0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

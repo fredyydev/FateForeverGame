@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://weapons/player_shotty/player_shotty.gd" type="Script" id=1]
 [ext_resource path="res://weapons/player_shotty/shotgun.png" type="Texture" id=2]
 [ext_resource path="res://weapons/player_shotty/SgPallet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://player/SFX/gun_shot.mp3" type="AudioStream" id=5]
+[ext_resource path="res://player/1586320.jpg" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "shoot"
@@ -32,10 +34,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1.98201, 1.5388 ), Vector2( 1.76419, 1.5388 ), Vector2( 1.98201, 1.5388 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Gun_Flare:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0384188, 0.0724046 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Gun_Flare:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.00287039, 0.0731951 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="PlayerShotty" type="Node2D"]
-position = Vector2( 55.006, -1.823 )
-scale = Vector2( 1.98201, 1.5388 )
+position = Vector2( 54.7542, -1.823 )
+scale = Vector2( 1.96407, 1.5388 )
 script = ExtResource( 1 )
 pallet_scene = ExtResource( 3 )
 pallets = NodePath("pallets_spawn")
@@ -97,10 +123,22 @@ position = Vector2( 2.503, 0 )
 texture = ExtResource( 2 )
 
 [node name="FireRate" type="Timer" parent="."]
-wait_time = 0.95
+wait_time = 0.76
 one_shot = true
 
 [node name="shot_animation" type="AnimationPlayer" parent="."]
 anims/shoot = SubResource( 1 )
+
+[node name="Gun_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -1.03
+
+[node name="Gun_Flare" type="Light2D" parent="."]
+modulate = Color( 0.937255, 1, 0.509804, 0.733333 )
+position = Vector2( -7.99331, 1.60043 )
+enabled = false
+texture = ExtResource( 6 )
+color = Color( 1, 0.905882, 0.290196, 1 )
+shadow_enabled = true
 
 [connection signal="timeout" from="FireRate" to="." method="_on_FireRate_timeout"]

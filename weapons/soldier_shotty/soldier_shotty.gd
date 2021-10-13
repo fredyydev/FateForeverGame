@@ -8,6 +8,8 @@ func _init():
 	starting_ammo = 666
 
 func shoot():
+	$gun_shot.play()
+	$shot_anim.play("shot")
 	.shoot()
 	
 	for child in pallets.get_children():

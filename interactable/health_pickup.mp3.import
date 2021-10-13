@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/health_pickup.mp3-891f51ee6bcb1c4922914aa4cd6377d8.mp3str"
+
+[deps]
+
+source_file="res://interactable/health_pickup.mp3"
+dest_files=[ "res://.import/health_pickup.mp3-891f51ee6bcb1c4922914aa4cd6377d8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

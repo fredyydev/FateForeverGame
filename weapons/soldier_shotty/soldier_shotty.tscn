@@ -1,12 +1,66 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://weapons/soldier_shotty/soldier_shotty.gd" type="Script" id=1]
 [ext_resource path="res://weapons/player_shotty/shotgun.png" type="Texture" id=2]
 [ext_resource path="res://weapons/soldier_shotty/SgSoldierPallet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://player/SFX/gun_shot.mp3" type="AudioStream" id=5]
+[ext_resource path="res://player/1586320.jpg" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "shot"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.102617, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.102617, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.9, 1.49 ), Vector2( 1.501, 1.49 ), Vector2( 1.9, 1.49 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("gun_flare:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.49246e-10, 0.0545375, 0.091135 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("gun_flare:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0882646 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="SoldierShotty" type="Node2D"]
-scale = Vector2( 1, 0.851 )
+scale = Vector2( 1.9, 1.49 )
 script = ExtResource( 1 )
 pallet_scene = ExtResource( 3 )
 pallets = NodePath("pallets_spawn")
@@ -66,3 +120,18 @@ texture = ExtResource( 4 )
 [node name="shotgun_sprite" type="Sprite" parent="."]
 position = Vector2( 2.503, 0 )
 texture = ExtResource( 2 )
+
+[node name="gun_shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+attenuation = 1.46409
+bus = "Enemy"
+
+[node name="shot_anim" type="AnimationPlayer" parent="."]
+anims/shot = SubResource( 1 )
+
+[node name="gun_flare" type="Light2D" parent="."]
+enabled = false
+texture = ExtResource( 6 )
+color = Color( 1, 0.905882, 0.290196, 1 )
+energy = -6.40378e-09
+shadow_enabled = true

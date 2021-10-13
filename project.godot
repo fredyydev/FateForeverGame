@@ -15,7 +15,7 @@ _global_script_classes=[ {
 "path": "res://weapons/player_shotty/sg_pallet.gd"
 }, {
 "base": "Enemy",
-"class": "Eevil",
+"class": "Eeevil",
 "language": "GDScript",
 "path": "res://enemies/Eevil/Eeevil.gd"
 }, {
@@ -76,7 +76,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bullet": "",
-"Eevil": "",
+"Eeevil": "",
 "Enemy": "",
 "Entity": "",
 "GitAPI": "",
@@ -104,6 +104,7 @@ PlayerGlobal="*res://player/player_global.gd"
 
 window/size/width=1240
 window/size/height=720
+mouse_cursor/custom_image="res://player/reticle.png"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
@@ -155,5 +156,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.117647, 0.109804, 0.109804, 1 )
+environment/default_clear_color=Color( 0.0627451, 0.0627451, 0.0627451, 1 )
 environment/default_environment="res://default_env.tres"

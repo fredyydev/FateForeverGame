@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ammo_pickup_shotty.mp3-06fe3d89c4c84d5caddeafdeb24a9a04.mp3str"
+
+[deps]
+
+source_file="res://interactable/ammo_pickup_shotty.mp3"
+dest_files=[ "res://.import/ammo_pickup_shotty.mp3-06fe3d89c4c84d5caddeafdeb24a9a04.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

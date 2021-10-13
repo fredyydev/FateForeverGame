@@ -4,9 +4,9 @@ class_name PlayerStats
 export var init_shotgun_ammo := 15
 export var init_ar_ammo := 50
 export var init_health := 200
-var sg_ammo := init_shotgun_ammo
-var ar_ammo := init_ar_ammo
-var health := init_health
+onready var sg_ammo := init_shotgun_ammo
+onready var ar_ammo := init_ar_ammo
+onready var health := init_health
 
 
 func reset():
