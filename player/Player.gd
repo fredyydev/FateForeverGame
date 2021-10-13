@@ -5,8 +5,10 @@ var is_walking : bool
 var is_dashing: bool
 var has_blue_key: bool
 var has_red_key: bool
+var has_machine_gun: bool
 var health: int
 var player_stats := load("res://player/player_stats.tres")
+onready var weapon_rig = $WeaponRig
 export(NodePath) onready var anim = get_node(anim) as AnimationPlayer
 
 func _ready():
@@ -43,7 +45,7 @@ func take_damage(damage):
 	print(health)
 
 func add_ammo(amount: int, gun_name: String):
-	var gun: Weapon = get_node(gun_name)
+	var gun: Weapon = get_node("WeaponRig/" + gun_name)
 	gun.current_ammo += amount
 	print(gun.current_ammo)
 

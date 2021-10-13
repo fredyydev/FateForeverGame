@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/machine_gun_sprite.png-65611c0aae01966db0666f2a32836b3e.stex"
+path="res://.import/ar_ammo_sprite.png-0d49ac94f17691ef5b06a8fc746e3b7a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/machine_gun/machine_gun_sprite.png"
-dest_files=[ "res://.import/machine_gun_sprite.png-65611c0aae01966db0666f2a32836b3e.stex" ]
+source_file="res://interactable/ar_ammo_sprite.png"
+dest_files=[ "res://.import/ar_ammo_sprite.png-0d49ac94f17691ef5b06a8fc746e3b7a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

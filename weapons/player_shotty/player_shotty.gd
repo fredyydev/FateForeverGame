@@ -5,6 +5,7 @@ export(PackedScene) var pallet_scene: PackedScene
 export(NodePath) onready var pallets = get_node(pallets) as Node2D
 
 func _init():
+	player_stats.reset()
 	starting_ammo = player_stats.init_shotgun_ammo
 
 func _process(_delta):

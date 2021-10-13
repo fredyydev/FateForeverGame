@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://weapons/player_shotty/pallet_sprite.png" type="Texture" id=1]
+[ext_resource path="res://weapons/player_shotty/sg_pallet.gd" type="Script" id=2]
+
+[node name="ArBullet" type="KinematicBody2D" groups=[
+"bullets",
+]]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 65536
+collision_mask = 3
+script = ExtResource( 2 )
+speed = 55
+damage = 25
+
+[node name="pallet_sprite" type="Sprite" parent="."]
+position = Vector2( 0.111969, -1.01843 )
+scale = Vector2( 1.484, 0.317 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -0.0982603, -1.01843 )
+scale = Vector2( 1.14198, 0.6 )
+polygon = PoolVector2Array( 8, -4.4, 8, 5, 5.6, 8, -5, 8, -8, 5.6, -8, -4.4, -3, -8, 2.6, -8 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

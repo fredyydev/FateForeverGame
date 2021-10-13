@@ -9,7 +9,6 @@ func attack():
 
 func take_damage (_damage):
 	.take_damage(_damage)
-	$StateMachine.transition_to("Stagger")
 
 func play_animation(animation_name := "Idle"):
 	animPlay.play(animation_name)

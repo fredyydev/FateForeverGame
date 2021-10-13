@@ -39,7 +39,7 @@ tracks/2/path = NodePath("Gun_Flare:energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.0384188, 0.0724046 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -53,15 +53,15 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.00287039, 0.0731951 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.0150323, 0.0731951 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ false, true, false ]
 }
 
 [node name="PlayerShotty" type="Node2D"]
-position = Vector2( 54.7542, -1.823 )
-scale = Vector2( 1.96407, 1.5388 )
+position = Vector2( 55.006, -1.823 )
+scale = Vector2( 1.98201, 1.5388 )
 script = ExtResource( 1 )
 pallet_scene = ExtResource( 3 )
 pallets = NodePath("pallets_spawn")

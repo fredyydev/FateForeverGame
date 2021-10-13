@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://weapons/machine_gun/shot_sound.mp3" type="AudioStream" id=1]
+[ext_resource path="res://weapons/machine_gun/Shot_sound.gd" type="Script" id=2]
+
+[node name="Shot_sound" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Destroy" type="Timer" parent="."]
+wait_time = 0.4
+
+[connection signal="timeout" from="Destroy" to="." method="_on_Destroy_timeout"]
