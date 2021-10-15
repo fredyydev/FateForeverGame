@@ -108,8 +108,9 @@ config/name="Fate Forever"
 run/main_scene="res://Menus/MainMenu.tscn"
 boot_splash/image="res://fredyy.png"
 boot_splash/fullsize=false
-boot_splash/bg_color=Color( 0.12549, 0.00392157, 0.145098, 1 )
-config/icon="res://icon.png"
+boot_splash/bg_color=Color( 0.0980392, 0.0705882, 0.101961, 1 )
+config/icon="res://ff_icon.png"
+config/windows_native_icon="res://ff_icon_fyJ_icon.ico"
 
 [autoload]
 

@@ -37,8 +37,8 @@ func set_health(value):
 func _physics_process(_delta):
 	if health <= 0:
 		die()
-	elif health > 150:
-		health = 150
+	elif health > max_heath:
+		health = max_heath
 	#Set global variable for player position
 	PlayerGlobal.player_position = self.global_position
 	#Check if the player is walking 

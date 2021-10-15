@@ -81,7 +81,7 @@ margin_right = 3721.41
 margin_bottom = -942.793
 rect_scale = Vector2( 0.535424, 0.675213 )
 custom_fonts/font = SubResource( 1 )
-text = "CHANGE WEAPONS: NUMKEYS"
+text = "SWITCH WEAPONS: NUMKEYS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -215,16 +215,8 @@ position = Vector2( 5996.16, 1187.31 )
 position = Vector2( 3229.72, -833.288 )
 
 [node name="ArAmmoPick2" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1079.82, -1557.85 )
+position = Vector2( 1256.75, -1530.3 )
 ammo_amount = 15
-
-[node name="ArAmmoPick3" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1264.81, -1550.3 )
-ammo_amount = 10
-
-[node name="ArAmmoPick4" parent="." instance=ExtResource( 14 )]
-position = Vector2( -736.372, -2394.41 )
-ammo_amount = 10
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
