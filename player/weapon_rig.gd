@@ -20,6 +20,7 @@ func switch_weapon(weapon_name: String):
 			if current_weapon == selected_weapon:
 				return
 			current_weapon = selected_weapon
+			PlayerGlobal.current_weapon = current_weapon.name
 			selected_weapon.visible = true
 			selected_weapon.set_process(true)
 		else:

@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://player/LifeBar.gd" type="Script" id=1]
+[ext_resource path="res://player/lifebar_background.png" type="Texture" id=2]
+[ext_resource path="res://player/lifebar_tex.png" type="Texture" id=3]
+[ext_resource path="res://interactable/sg_ammo.png" type="Texture" id=4]
+[ext_resource path="res://fonts/ammo_font_100.tres" type="DynamicFont" id=5]
+[ext_resource path="res://player/sg_ammo_label.gd" type="Script" id=6]
+[ext_resource path="res://interactable/ar_ammo_sprite.png" type="Texture" id=7]
+[ext_resource path="res://player/ar_ammo_txt.gd" type="Script" id=8]
+[ext_resource path="res://player/WeaponsUI.gd" type="Script" id=9]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBar" type="TextureProgress" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -130.971
+margin_right = 100.0
+margin_bottom = -100.971
+rect_scale = Vector2( 5, 5 )
+max_value = 200.0
+allow_greater = true
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponsUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MachineGun" type="Control" parent="WeaponsUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ar_ammo_txt" type="Label" parent="WeaponsUI/MachineGun"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -156.969
+margin_top = -218.796
+margin_right = -66.969
+margin_bottom = -97.7961
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AR_ammo_tex" type="TextureRect" parent="WeaponsUI/MachineGun"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -166.066
+margin_top = -111.883
+margin_right = 63.9338
+margin_bottom = 68.1171
+rect_scale = Vector2( 0.591617, 0.42182 )
+texture = ExtResource( 7 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerShotty" type="Control" parent="WeaponsUI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sg_ammo_txt" type="Label" parent="WeaponsUI/PlayerShotty"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -146.0
+margin_top = -214.0
+margin_right = -56.0
+margin_bottom = -93.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shotgun_ammo_tex" type="TextureRect" parent="WeaponsUI/PlayerShotty"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -184.183
+margin_top = -118.976
+margin_right = -22.1826
+margin_bottom = -18.9764
+rect_min_size = Vector2( 100, 100 )
+texture = ExtResource( 4 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}

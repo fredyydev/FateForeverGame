@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource( 1 )
-init_shotgun_ammo = 15
-init_ar_ammo = 150
-init_health = 120
+init_shotgun_ammo = 10
+init_ar_ammo = 40
+init_health = 150
