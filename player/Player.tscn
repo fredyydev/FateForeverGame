@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://player/fate_guy_head.png" type="Texture" id=1]
 [ext_resource path="res://state_machine/state_machine.gd" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://weapons/machine_gun/MachineGun.tscn" type="PackedScene" id=16]
 [ext_resource path="res://player/weapon_rig.gd" type="Script" id=17]
 [ext_resource path="res://Menus/OptionsMenu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://weapons/one_killer/OneKiller.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dash"
@@ -207,6 +208,10 @@ visible = false
 position = Vector2( 61.8498, 0.800338 )
 scale = Vector2( 1.83064, 2.23701 )
 
+[node name="OneKiller" parent="WeaponRig" instance=ExtResource( 19 )]
+visible = false
+position = Vector2( 64.2201, 1.42716 )
+
 [node name="MovementAnim" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
 anims/Dash = SubResource( 1 )
@@ -223,7 +228,7 @@ script = ExtResource( 10 )
 
 [node name="footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -15.0
+volume_db = -7.0
 bus = "Game Audio"
 script = ExtResource( 11 )
 footsteps = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ) ]

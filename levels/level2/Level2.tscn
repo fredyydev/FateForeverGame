@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://levels/level1/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tileset/tileset.tres" type="TileSet" id=2]
@@ -18,8 +18,12 @@
 [ext_resource path="res://player/UI.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Menus/EndScreen.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Menus/WBA Free Track - Torn Flesh.mp3" type="AudioStream" id=18]
+[ext_resource path="res://interactable/one_killer_pick.tscn" type="PackedScene" id=19]
+[ext_resource path="res://fonts/ammo_font_40.tres" type="DynamicFont" id=20]
+[ext_resource path="res://levels/level2/Level2.gd" type="Script" id=21]
 
 [node name="Level2" type="Node2D"]
+script = ExtResource( 21 )
 
 [node name="Navigation2D" type="Navigation2D" parent="." groups=[
 "Navigation",
@@ -94,7 +98,7 @@ rotation = 1.5708
 scale = Vector2( 8.48333, -7.25194 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 180.55, 450.74 )
+position = Vector2( 38.8008, 409.748 )
 
 [node name="BlueKey" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1559.11, 1480.3 )
@@ -179,10 +183,6 @@ rotation = 3.27814
 position = Vector2( 4176.47, 514.861 )
 rotation = 3.27814
 
-[node name="Soldier3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 4120.1, -21.2509 )
-rotation = 2.91333
-
 [node name="HealthPick5" parent="." instance=ExtResource( 9 )]
 position = Vector2( 3698.22, 1395.03 )
 
@@ -234,3 +234,21 @@ stream = ExtResource( 18 )
 volume_db = -17.0
 autoplay = true
 bus = "Music"
+
+[node name="one_killer_pick" parent="." instance=ExtResource( 19 )]
+position = Vector2( 2443.55, 1546.44 )
+
+[node name="ONE_KILLER" type="Label" parent="."]
+visible = false
+margin_left = 1917.41
+margin_top = 1402.41
+margin_right = 3315.41
+margin_bottom = 1450.41
+rect_scale = Vector2( 0.599009, 0.820437 )
+custom_fonts/font = ExtResource( 20 )
+text = "THE ONE KILLER IS NOW UNLOCKED ACROSS ALL PLAYTHROUGHS (num3)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="on_player_interacted" from="one_killer_pick" to="." method="_on_one_killer_pick_on_player_interacted"]

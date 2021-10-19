@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://weapons/one_killer/OKProjectile.gd" type="Script" id=1]
+[ext_resource path="res://enemies/Eevil/fireball.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 15.6721
+
+[node name="OKProjectile" type="KinematicBody2D"]
+script = ExtResource( 1 )
+speed = 30
+damage = 2000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.71938, -2.42568 )
+shape = SubResource( 1 )
+
+[node name="fireball" type="Sprite" parent="."]
+position = Vector2( 3.17093, 0.0133841 )
+scale = Vector2( 2.53627, 2.55648 )
+texture = ExtResource( 2 )

@@ -6,6 +6,7 @@ var is_dashing: bool
 var has_blue_key: bool
 var has_red_key: bool
 var has_machine_gun: bool setget set_machine_gun
+var has_one_killer: bool
 var health: int setget set_health
 export var max_heath = 150
 var player_stats := load("res://player/player_stats.tres")
@@ -13,6 +14,12 @@ onready var weapon_rig = $WeaponRig
 export(NodePath) onready var anim = get_node(anim) as AnimationPlayer
 
 func _ready():
+	var file := File.new()
+	if file.file_exists("user://weapon.had"):
+# warning-ignore:return_value_discarded
+		file.open("user://weapon.had", File.READ)
+		has_one_killer = file.get_var()
+	file.close()
 	has_machine_gun = player_stats.has_ar
 	health = player_stats.health
 	print(health)
