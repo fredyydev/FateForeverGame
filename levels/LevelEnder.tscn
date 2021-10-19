@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://levels/LevelEnder.gd" type="Script" id=1]
+[ext_resource path="res://Menus/MainMenu.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 25.8043
+
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.0223214, 274.909 ), 0.0, 0.0, 0, 0, Vector2( 0.53125, 163.636 ), 0.0, 0.0, 0, 0, Vector2( 0.808036, -183.273 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 6.51
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 61.22
+gravity = Vector3( 50, 0, 0 )
+angular_velocity = 70.82
+angular_velocity_random = 0.72
+angular_velocity_curve = SubResource( 3 )
+orbit_velocity = 1.02
+orbit_velocity_random = 0.7
+angle_random = 1.0
+scale = 1.84
+color = Color( 0.172549, 1, 0, 1 )
+
+[node name="LevelEnder" type="Area2D"]
+collision_layer = 0
+collision_mask = 1025
+script = ExtResource( 1 )
+next_scene = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 30
+process_material = SubResource( 4 )
+
+[connection signal="on_player_interacted" from="." to="." method="_on_LevelEnder_on_player_interacted"]

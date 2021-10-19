@@ -122,10 +122,12 @@ shape = SubResource( 1 )
 stream = ExtResource( 9 )
 volume_db = -15.337
 attenuation = 2.2974
+bus = "Enemy"
 
 [node name="wake_up" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
 attenuation = 2.46229
+bus = "Enemy"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )

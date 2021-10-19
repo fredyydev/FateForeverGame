@@ -3,7 +3,10 @@ extends Node
 var player_position: Vector2
 var current_weapon := "PlayerShotty"
 var settings_path := "user://settings/"
+#Fun fact: HAD stands for "Here's All the Data". Now, did you catch the reference?
 var settings_file_path := "user://settings/settings.had"
+var has_blue_key: bool
+var has_red_key: bool
 
 # warning-ignore:unused_signal
 signal player_spotted

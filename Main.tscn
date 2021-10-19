@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://enemies/Eevil/Eeevil.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/UI.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://tileset/walls_tileset.tres" type="TileSet" id=7]
 [ext_resource path="res://interactable/mg_pickup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/LevelEnder.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/level2/Level2.tscn" type="PackedScene" id=11]
 
 [node name="Root" type="Node"]
 
@@ -88,3 +90,8 @@ position = Vector2( 686.571, 567.24 )
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="LifeBar" parent="GUI" instance=ExtResource( 2 )]
+
+[node name="LevelEnder" parent="." instance=ExtResource( 10 )]
+position = Vector2( 208.034, 571.268 )
+scale = Vector2( 3.23306, -3.35135 )
+next_scene = ExtResource( 11 )

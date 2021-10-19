@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menus/quit_button.gd" type="Script" id=1]
 [ext_resource path="res://Menus/play_button.gd" type="Script" id=2]
 [ext_resource path="res://Menus/main_title.png" type="Texture" id=3]
 [ext_resource path="res://Menus/menu_background.png" type="Texture" id=4]
 [ext_resource path="res://fonts/Quicksilver.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://Menus/OptionsButton.gd" type="Script" id=6]
+[ext_resource path="res://Menus/Death Sentence.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Menus/OptionsMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menus/MainMenu.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 61
@@ -15,16 +17,25 @@ use_filter = true
 extra_spacing_char = 2
 font_data = ExtResource( 5 )
 
-[node name="MainMenu" type="Node"]
+[sub_resource type="DynamicFont" id=2]
+size = 15
+outline_size = 1
+outline_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+use_filter = true
+extra_spacing_char = 2
+font_data = ExtResource( 5 )
 
-[node name="Control" type="Control" parent="."]
+[node name="MainMenu" type="Node"]
+script = ExtResource( 9 )
+
+[node name="MainTitle" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="menu_background" type="TextureRect" parent="Control"]
+[node name="menu_background" type="TextureRect" parent="MainTitle"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 4 )
@@ -33,7 +44,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="VBoxContainer" parent="Control"]
+[node name="Buttons" type="VBoxContainer" parent="MainTitle"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -5.33936
@@ -44,10 +55,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="Control/Buttons"]
+[node name="Play" type="Button" parent="MainTitle/Buttons"]
 margin_right = 1240.0
 margin_bottom = 79.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
 custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
@@ -59,24 +71,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Options" type="Button" parent="Control/Buttons"]
+[node name="Options" type="Button" parent="MainTitle/Buttons"]
 margin_top = 83.0
 margin_right = 1240.0
 margin_bottom = 162.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
 custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
 enabled_focus_mode = 0
 text = "OPTIONS"
 flat = true
-script = ExtResource( 6 )
 
-[node name="Quit" type="Button" parent="Control/Buttons"]
+[node name="Quit" type="Button" parent="MainTitle/Buttons"]
 margin_top = 166.0
 margin_right = 1240.0
 margin_bottom = 245.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
 custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
@@ -85,7 +98,7 @@ text = "QUIT"
 flat = true
 script = ExtResource( 1 )
 
-[node name="Title" type="TextureRect" parent="Control"]
+[node name="Title" type="TextureRect" parent="MainTitle"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -99,6 +112,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Control/Buttons/Play" to="Control/Buttons/Play" method="_on_Play_pressed"]
-[connection signal="pressed" from="Control/Buttons/Options" to="Control/Buttons/Options" method="_on_Options_pressed"]
-[connection signal="pressed" from="Control/Buttons/Quit" to="Control/Buttons/Quit" method="_on_Quit_pressed"]
+[node name="music by" type="Label" parent="MainTitle"]
+margin_left = 803.976
+margin_top = 685.744
+margin_right = 1223.98
+margin_bottom = 703.744
+custom_fonts/font = SubResource( 2 )
+text = "music by Karl Casey @ White Bat Audio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsMenu" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="GoMainMenu" parent="OptionsMenu/CenterAnchor/Buttons" index="5"]
+script = null
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+autoplay = true
+bus = "Music"
+
+[connection signal="pressed" from="MainTitle/Buttons/Play" to="MainTitle/Buttons/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="MainTitle/Buttons/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MainTitle/Buttons/Quit" to="MainTitle/Buttons/Quit" method="_on_Quit_pressed"]
+[connection signal="pressed" from="OptionsMenu/CenterAnchor/Buttons/GoMainMenu" to="." method="_on_GoMainMenu_pressed"]
+
+[editable path="OptionsMenu"]

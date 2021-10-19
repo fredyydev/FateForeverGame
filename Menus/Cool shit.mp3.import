@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cool shit.mp3-1466f4b986172aecbc11bc8494f846bb.mp3str"
+
+[deps]
+
+source_file="res://Menus/Cool shit.mp3"
+dest_files=[ "res://.import/Cool shit.mp3-1466f4b986172aecbc11bc8494f846bb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

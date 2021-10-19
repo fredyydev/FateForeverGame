@@ -2,8 +2,11 @@ extends Node2D
 class_name Weapon
 
 var starting_ammo: int
-onready var current_ammo := starting_ammo setget set_ammo
+onready var current_ammo: int setget set_ammo
 var can_fire := true
+
+func _ready():
+	set_ammo(starting_ammo)
 
 func set_ammo(value):
 	current_ammo = value

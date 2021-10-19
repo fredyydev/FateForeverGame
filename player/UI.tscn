@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/LifeBar.gd" type="Script" id=1]
 [ext_resource path="res://player/lifebar_background.png" type="Texture" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://interactable/ar_ammo_sprite.png" type="Texture" id=7]
 [ext_resource path="res://player/ar_ammo_txt.gd" type="Script" id=8]
 [ext_resource path="res://player/WeaponsUI.gd" type="Script" id=9]
+[ext_resource path="res://interactable/1-11011_red-key-clipart-png.png" type="Texture" id=10]
+[ext_resource path="res://levels/doors/key-blue-hi.png" type="Texture" id=11]
+[ext_resource path="res://player/KeysUI.gd" type="Script" id=12]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -125,3 +128,41 @@ stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Keys" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+keys_color_on = Color( 1, 1, 1, 1 )
+keys_color_off = Color( 1, 1, 1, 0.0980392 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Keys"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -86.1644
+margin_top = 33.9411
+margin_right = 77.8356
+margin_bottom = 73.9411
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedKey" type="TextureRect" parent="Keys/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.168627 )
+margin_right = 80.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+texture = ExtResource( 10 )
+expand = true
+
+[node name="BlueKey" type="TextureRect" parent="Keys/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.101961 )
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+texture = ExtResource( 11 )
+expand = true

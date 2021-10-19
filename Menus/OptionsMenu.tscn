@@ -20,7 +20,7 @@ use_filter = true
 extra_spacing_char = 2
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 33
 outline_size = 4
 outline_color = Color( 0.447059, 0.243137, 0.243137, 1 )
@@ -28,7 +28,7 @@ use_filter = true
 extra_spacing_char = 2
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 23
 outline_size = 4
 outline_color = Color( 0.447059, 0.243137, 0.243137, 1 )
@@ -53,19 +53,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="CenterAnchor" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -620.0
+margin_top = -360.0
+margin_right = 620.0
+margin_bottom = 360.0
+
+[node name="Buttons" type="VBoxContainer" parent="CenterAnchor"]
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 443.0
 margin_top = -243.0
-margin_right = 719.0
-margin_bottom = 202.0
+margin_right = 769.0
+margin_bottom = 313.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSync" type="Control" parent="Buttons"]
-margin_right = 346.0
+[node name="VSync" type="Control" parent="CenterAnchor/Buttons"]
+margin_right = 326.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 273, 83 )
 script = ExtResource( 8 )
@@ -73,7 +83,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Buttons/VSync"]
+[node name="Label" type="Label" parent="CenterAnchor/Buttons/VSync"]
 margin_right = 147.0
 margin_bottom = 48.0
 custom_fonts/font = ExtResource( 3 )
@@ -82,13 +92,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VsyncCheckBox" type="CheckBox" parent="Buttons/VSync"]
+[node name="VsyncCheckBox" type="CheckBox" parent="CenterAnchor/Buttons/VSync"]
 margin_left = 176.227
 margin_top = -2.24493
 margin_right = 284.227
 margin_bottom = 105.755
 rect_scale = Vector2( 0.5, 0.5 )
 focus_mode = 0
+mouse_default_cursor_shape = 2
 custom_icons/checked = ExtResource( 1 )
 custom_icons/unchecked = ExtResource( 2 )
 custom_fonts/font = ExtResource( 3 )
@@ -99,9 +110,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Fullscreen" type="Control" parent="Buttons"]
+[node name="Fullscreen" type="Control" parent="CenterAnchor/Buttons"]
 margin_top = 87.0
-margin_right = 346.0
+margin_right = 326.0
 margin_bottom = 170.0
 rect_min_size = Vector2( 273, 83 )
 script = ExtResource( 7 )
@@ -109,7 +120,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Buttons/Fullscreen"]
+[node name="Label" type="Label" parent="CenterAnchor/Buttons/Fullscreen"]
 margin_left = -30.7013
 margin_top = 6.67419
 margin_right = 216.299
@@ -120,28 +131,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="checkBox" type="CheckBox" parent="Buttons/Fullscreen"]
+[node name="checkBox" type="CheckBox" parent="CenterAnchor/Buttons/Fullscreen"]
 margin_left = 173.0
 margin_top = -2.0
 margin_right = 281.0
 margin_bottom = 106.0
 rect_scale = Vector2( 0.517699, 0.48062 )
+mouse_default_cursor_shape = 2
 custom_icons/checked = ExtResource( 1 )
 custom_icons/unchecked = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Volume" type="Control" parent="Buttons"]
+[node name="Volume" type="Control" parent="CenterAnchor/Buttons"]
 margin_top = 174.0
-margin_right = 346.0
+margin_right = 326.0
 margin_bottom = 251.0
 rect_min_size = Vector2( 326, 77 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Buttons/Volume"]
+[node name="Label" type="Label" parent="CenterAnchor/Buttons/Volume"]
 margin_left = 60.0565
 margin_top = -10.7835
 margin_right = 225.057
@@ -152,12 +164,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VolumeHSlider" type="HSlider" parent="Buttons/Volume"]
+[node name="VolumeHSlider" type="HSlider" parent="CenterAnchor/Buttons/Volume"]
 margin_left = 5.0
 margin_top = 42.0
 margin_right = 319.0
 margin_bottom = 79.0
 rect_scale = Vector2( 1, 1.401 )
+mouse_default_cursor_shape = 2
 min_value = -30.0
 max_value = 10.0
 step = 2.0
@@ -167,30 +180,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VSeparator" type="VSeparator" parent="Buttons"]
+[node name="VSeparator" type="VSeparator" parent="CenterAnchor/Buttons"]
 margin_top = 255.0
-margin_right = 346.0
+margin_right = 326.0
 margin_bottom = 410.533
 rect_min_size = Vector2( 2.77, 155.533 )
 
-[node name="SAVES_SET" type="Button" parent="Buttons"]
+[node name="SAVES_SET" type="Button" parent="CenterAnchor/Buttons"]
 margin_top = 414.0
-margin_right = 346.0
+margin_right = 326.0
 margin_bottom = 460.0
 focus_mode = 0
-custom_fonts/font = SubResource( 3 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
 custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
 enabled_focus_mode = 0
 text = "SAVE SETTINGS"
 flat = true
 
-[node name="GoMainMenu" type="Button" parent="Buttons"]
+[node name="GoMainMenu" type="Button" parent="CenterAnchor/Buttons"]
 margin_top = 464.0
-margin_right = 346.0
+margin_right = 326.0
 margin_bottom = 498.0
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
 custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
 enabled_focus_mode = 0
@@ -198,11 +213,12 @@ text = "RETURN TO MAIN MENU"
 flat = true
 script = ExtResource( 9 )
 
-[node name="Quit" type="Button" parent="Buttons"]
+[node name="Quit" type="Button" parent="CenterAnchor/Buttons"]
 margin_top = 502.0
-margin_right = 346.0
+margin_right = 326.0
 margin_bottom = 556.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
 custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
@@ -211,9 +227,9 @@ text = "QUIT GAME"
 flat = true
 script = ExtResource( 5 )
 
-[connection signal="pressed" from="Buttons/VSync/VsyncCheckBox" to="Buttons/VSync" method="_on_VsyncCheckBox_pressed"]
-[connection signal="pressed" from="Buttons/Fullscreen/checkBox" to="Buttons/Fullscreen" method="_on_checkBox_pressed"]
-[connection signal="value_changed" from="Buttons/Volume/VolumeHSlider" to="Buttons/Volume/VolumeHSlider" method="_on_HSlider_value_changed"]
-[connection signal="pressed" from="Buttons/SAVES_SET" to="." method="_on_SAVES_SET_pressed"]
-[connection signal="pressed" from="Buttons/GoMainMenu" to="Buttons/GoMainMenu" method="_on_GoMainMenu_pressed"]
-[connection signal="pressed" from="Buttons/Quit" to="Buttons/Quit" method="_on_Quit_pressed"]
+[connection signal="pressed" from="CenterAnchor/Buttons/VSync/VsyncCheckBox" to="CenterAnchor/Buttons/VSync" method="_on_VsyncCheckBox_pressed"]
+[connection signal="pressed" from="CenterAnchor/Buttons/Fullscreen/checkBox" to="CenterAnchor/Buttons/Fullscreen" method="_on_checkBox_pressed"]
+[connection signal="value_changed" from="CenterAnchor/Buttons/Volume/VolumeHSlider" to="CenterAnchor/Buttons/Volume/VolumeHSlider" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="CenterAnchor/Buttons/SAVES_SET" to="." method="_on_SAVES_SET_pressed"]
+[connection signal="pressed" from="CenterAnchor/Buttons/GoMainMenu" to="CenterAnchor/Buttons/GoMainMenu" method="_on_GoMainMenu_pressed"]
+[connection signal="pressed" from="CenterAnchor/Buttons/Quit" to="CenterAnchor/Buttons/Quit" method="_on_Quit_pressed"]

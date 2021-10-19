@@ -224,12 +224,14 @@ script = ExtResource( 10 )
 [node name="footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -15.0
+bus = "Game Audio"
 script = ExtResource( 11 )
 footsteps = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ) ]
 dash_sound = ExtResource( 12 )
 
 [node name="other_sounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+bus = "Game Audio"
 script = ExtResource( 11 )
 footsteps = [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ) ]
 dash_sound = ExtResource( 12 )

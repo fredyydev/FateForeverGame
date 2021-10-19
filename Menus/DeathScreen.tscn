@@ -1,0 +1,219 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Menus/menu_background.png" type="Texture" id=1]
+[ext_resource path="res://Menus/death_sound.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Menus/quit_button.gd" type="Script" id=3]
+[ext_resource path="res://Menus/skull-2807482.png" type="Texture" id=4]
+[ext_resource path="res://fonts/Quicksilver.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://Menus/DeathScreen.gd" type="Script" id=6]
+[ext_resource path="res://Menus/Cool shit.mp3" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 61
+outline_size = 4
+outline_color = Color( 0.447059, 0.243137, 0.243137, 1 )
+use_filter = true
+extra_spacing_char = 2
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "death_scene"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterAnchor/Skull:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.6, 1.9 ),
+"transitions": PoolRealArray( 0.341509, 0.341509, 1.51572, 0.353553 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterAnchor/Skull:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 1.4, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 0.25098, 0.25098, 1 ), Color( 1, 1, 1, 0.117647 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CenterAnchor/Buttons:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.3, 3.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0.4 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CenterAnchor/Buttons/MainMenu:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.0999999, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CenterAnchor/Buttons/Quit:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.0999999, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="DeathScreen" type="Control"]
+modulate = Color( 1, 1, 1, 0.166667 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 7.0
+margin_bottom = 7.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterAnchor" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -620.0
+margin_top = -360.0
+margin_right = 620.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skull" type="TextureRect" parent="CenterAnchor"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -214.44
+margin_top = -274.419
+margin_right = 227.56
+margin_bottom = 248.581
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 213.107, 283.126 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="CenterAnchor"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.318
+margin_top = -76.7004
+margin_right = 184.682
+margin_bottom = 85.2996
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Button" parent="CenterAnchor/Buttons"]
+margin_right = 360.0
+margin_bottom = 79.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
+custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
+disabled = true
+enabled_focus_mode = 0
+text = "MAIN mENU"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="CenterAnchor/Buttons"]
+margin_top = 83.0
+margin_right = 360.0
+margin_bottom = 162.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0.509804, 0.509804, 0.509804, 1 )
+custom_colors/font_color_pressed = Color( 0.611765, 0.317647, 0.317647, 1 )
+disabled = true
+enabled_focus_mode = 0
+text = "QUIT"
+flat = true
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/death_scene = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Game Audio"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -7.0
+autoplay = true
+bus = "Music"
+
+[connection signal="pressed" from="CenterAnchor/Buttons/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="CenterAnchor/Buttons/Quit" to="CenterAnchor/Buttons/Quit" method="_on_Quit_pressed"]
