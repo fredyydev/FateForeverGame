@@ -4,6 +4,9 @@ class_name WeaponRig
 onready var shotty = $PlayerShotty
 onready var current_weapon = shotty
 
+func _ready():
+	switch_weapon(shotty.name)
+
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("shotgun"):
 		switch_weapon("PlayerShotty")
