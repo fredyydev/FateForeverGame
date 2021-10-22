@@ -1,7 +1,5 @@
 extends Node
 
-
-
 func _on_Options_pressed():
 	$MainTitle.visible = false
 	$OptionsMenu.visible = true

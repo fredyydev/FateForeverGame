@@ -6,12 +6,14 @@ var is_dashing: bool
 var has_blue_key: bool
 var has_red_key: bool
 var has_machine_gun: bool setget set_machine_gun
-var has_one_killer: bool
+var has_one_killer: bool 
+onready var current_level = get_tree().current_scene.name
 var health: int setget set_health
 export var max_heath = 150
 var player_stats := load("res://player/player_stats.tres")
 onready var weapon_rig = $WeaponRig
 export(NodePath) onready var anim = get_node(anim) as AnimationPlayer
+
 
 func _ready():
 	var file := File.new()
@@ -22,6 +24,7 @@ func _ready():
 	file.close()
 	has_machine_gun = player_stats.has_ar
 	health = player_stats.health
+	player_stats.level = current_level
 	print(health)
 
 func _input(_event):
@@ -39,6 +42,7 @@ func _input(_event):
 
 func set_health(value):
 	health = value
+	player_stats.health = value
 	PlayerGlobal.emit_signal("player_health_change", health)
 
 func _physics_process(_delta):

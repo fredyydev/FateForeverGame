@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://levels/level1/Car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tileset/tileset.tres" type="TileSet" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://interactable/one_killer_pick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://fonts/ammo_font_40.tres" type="DynamicFont" id=20]
 [ext_resource path="res://levels/level2/Level2.gd" type="Script" id=21]
+[ext_resource path="res://Menus/SaveGame.tscn" type="PackedScene" id=22]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 21 )
@@ -250,5 +251,7 @@ text = "THE ONE KILLER IS NOW UNLOCKED ACROSS ALL PLAYTHROUGHS (num3)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SaveGame" parent="." instance=ExtResource( 22 )]
 
 [connection signal="on_player_interacted" from="one_killer_pick" to="." method="_on_one_killer_pick_on_player_interacted"]

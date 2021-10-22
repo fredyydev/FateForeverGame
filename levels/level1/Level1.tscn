@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tileset/tileset.tres" type="TileSet" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://levels/LevelEnder.tscn" type="PackedScene" id=18]
 [ext_resource path="res://levels/level2/Level2.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Menus/WBA Free Track - Catacombs.mp3" type="AudioStream" id=20]
+[ext_resource path="res://Menus/SaveGame.tscn" type="PackedScene" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
@@ -253,3 +254,5 @@ stream = ExtResource( 20 )
 volume_db = -23.0
 autoplay = true
 bus = "Music"
+
+[node name="SaveGame" parent="." instance=ExtResource( 21 )]

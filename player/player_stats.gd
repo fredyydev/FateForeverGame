@@ -8,6 +8,7 @@ var sg_ammo := init_shotgun_ammo
 var ar_ammo := init_ar_ammo
 var health := init_health
 var has_ar: bool
+var level 
 
 
 func reset():
