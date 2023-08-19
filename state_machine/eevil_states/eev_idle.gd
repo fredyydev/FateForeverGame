@@ -9,6 +9,6 @@ func _ready():
 	print(error_message)
 
 func on_player_spotted():
-	if state_machine.current_state == self and eevil.global_position.distance_to(PlayerGlobal.player_position) < 800:
+	if state_machine.current_state == self and eevil.global_position.distance_to(PlayerGlobal.player_position) < 600:
 		wake_up_sound.play()
 		state_machine.transition_to("FollowPlayer")

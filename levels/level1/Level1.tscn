@@ -34,6 +34,7 @@ font_data = ExtResource( 17 )
 
 [node name="Reticle" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1913.07, -170.31 )
+z_index = 11
 
 [node name="Navigation2D" type="Navigation2D" parent="." groups=[
 "Navigation",
@@ -49,6 +50,7 @@ tile_data = PoolIntArray( -2031628, 11, 0, -2031627, 11, 0, -2031626, 11, 0, -20
 
 [node name="WallsMap" type="TileMap" parent="Navigation2D"]
 scale = Vector2( 5, 5 )
+z_index = -6
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 8, 8 )
 collision_layer = 1048575
@@ -105,6 +107,7 @@ position = Vector2( 601.033, -40.2195 )
 
 [node name="HealthPick" parent="." instance=ExtResource( 6 )]
 position = Vector2( 598.354, -388.935 )
+health_amount = 80
 
 [node name="Car" parent="." instance=ExtResource( 7 )]
 position = Vector2( -2.24738, -659.947 )
@@ -145,10 +148,11 @@ scale = Vector2( 5.27698, 4.15675 )
 
 [node name="HealthPick2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2341.95, -358.391 )
-health_amount = 55
+health_amount = 80
 
 [node name="HealthPick3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3483.31, -1086.52 )
+health_amount = 80
 
 [node name="SgAmmoPick2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3144.47, -597.55 )
@@ -184,7 +188,7 @@ position = Vector2( 557.934, -1745.65 )
 
 [node name="HealthPick4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1484.42, -2286.88 )
-health_amount = 100
+health_amount = 120
 
 [node name="RedDoor3" parent="." instance=ExtResource( 9 )]
 position = Vector2( -979.052, -1968.06 )

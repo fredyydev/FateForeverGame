@@ -8,8 +8,8 @@ radius = 15.9705
 
 [node name="EevilProjectile" type="KinematicBody2D"]
 script = ExtResource( 2 )
-speed = 18
-damage = 80
+speed = 12
+damage = 85
 
 [node name="pallet_sprite" type="Sprite" parent="."]
 position = Vector2( 0.332275, 2.67841 )

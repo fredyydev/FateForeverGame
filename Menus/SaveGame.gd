@@ -8,7 +8,6 @@ func save_game():
 		"level" : player_stats.level,
 		"sg_ammo" : player_stats.sg_ammo,
 		"ar_ammo" : player_stats.ar_ammo,
-		"health" : player_stats.health,
 		"has_ar" : player_stats.has_ar
 	}
 	

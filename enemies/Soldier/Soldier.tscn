@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://enemies/Soldier/soldier_sprite.png" type="Texture" id=1]
 [ext_resource path="res://enemies/Soldier/soldier.gd" type="Script" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://state_machine/soldier_states/soldier_follow.gd" type="Script" id=5]
 [ext_resource path="res://weapons/soldier_shotty/soldier_shotty.tscn" type="PackedScene" id=6]
 [ext_resource path="res://state_machine/soldier_states/soldier_attack.gd" type="Script" id=7]
+[ext_resource path="res://enemies/Soldier/ray_detector.gd" type="Script" id=8]
 [ext_resource path="res://player/SFX/step4.wav" type="AudioStream" id=9]
 [ext_resource path="res://enemies/Soldier/wake_up_sound.mp3" type="AudioStream" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 441.678
+radius = 307.954
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -78,9 +79,101 @@ initial_health = 132.0
 shotgun = NodePath("SoldierShotty")
 animPlay = NodePath("AnimationPlayer")
 
+[node name="WallDetection" type="Node2D" parent="."]
+rotation = -0.0139561
+
+[node name="RayCast2D" type="RayCast2D" parent="WallDetection"]
+enabled = true
+cast_to = Vector2( 0, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="WallDetection"]
+rotation = -0.269596
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D14" type="RayCast2D" parent="WallDetection"]
+rotation = -0.537422
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D3" type="RayCast2D" parent="WallDetection"]
+rotation = -0.765437
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D15" type="RayCast2D" parent="WallDetection"]
+rotation = -1.05204
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D4" type="RayCast2D" parent="WallDetection"]
+rotation = -1.29531
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D5" type="RayCast2D" parent="WallDetection"]
+rotation = -1.88856
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D6" type="RayCast2D" parent="WallDetection"]
+rotation = -2.44909
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D13" type="RayCast2D" parent="WallDetection"]
+rotation = -2.44909
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D7" type="RayCast2D" parent="WallDetection"]
+rotation = -2.90076
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D8" type="RayCast2D" parent="WallDetection"]
+rotation = -3.47797
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D12" type="RayCast2D" parent="WallDetection"]
+rotation = -3.8604
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D9" type="RayCast2D" parent="WallDetection"]
+rotation = -4.45285
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D10" type="RayCast2D" parent="WallDetection"]
+rotation = -5.46277
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
+[node name="RayCast2D11" type="RayCast2D" parent="WallDetection"]
+rotation = -4.79284
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 8 )
+
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.57079
-scale = Vector2( 6.53325, 6.40643 )
+scale = Vector2( 6.93638, 6.79482 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
@@ -126,6 +219,7 @@ bus = "Enemy"
 
 [node name="wake_up" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+volume_db = 2.0
 attenuation = 2.46229
 bus = "Enemy"
 

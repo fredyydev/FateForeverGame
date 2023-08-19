@@ -162,9 +162,9 @@ smoothing_enabled = true
 smoothing_speed = 9.0
 
 [node name="PlayerSprite" type="Sprite" parent="."]
-position = Vector2( 6.80035, 0.206039 )
-rotation = 1.50149
-scale = Vector2( 3.81736, 4.80685 )
+position = Vector2( 6.0934, 1.97335 )
+rotation = 1.57079
+scale = Vector2( 4.20885, 4.85947 )
 texture = ExtResource( 7 )
 
 [node name="doot_guy_head" type="Sprite" parent="PlayerSprite"]

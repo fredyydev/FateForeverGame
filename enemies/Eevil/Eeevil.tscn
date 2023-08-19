@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://enemies/Eevil/Eeevil.gd" type="Script" id=1]
 [ext_resource path="res://enemies/Eevil/eevil_sprite.png" type="Texture" id=2]
@@ -8,18 +8,115 @@
 [ext_resource path="res://enemies/Eevil/EevilProjectile.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemies/Eevil/wake_up_sound.mp3" type="AudioStream" id=7]
 [ext_resource path="res://enemies/Eevil/fire_sound.mp3" type="AudioStream" id=8]
+[ext_resource path="res://enemies/Soldier/ray_detector.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 19.8649
 height = 43.7047
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 386.993
+radius = 347.372
 
 [node name="Eeevil" type="KinematicBody2D"]
+collision_layer = 6
+collision_mask = 5
 script = ExtResource( 1 )
-initial_health = 170.0
+initial_health = 176.0
 projectile_scene = ExtResource( 6 )
+
+[node name="WallDetection" type="Node2D" parent="."]
+position = Vector2( 10.4882, 2.99661 )
+rotation = -0.0139561
+scale = Vector2( 0.487885, 0.453314 )
+
+[node name="RayCast2D" type="RayCast2D" parent="WallDetection"]
+enabled = true
+cast_to = Vector2( 0, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="WallDetection"]
+rotation = -0.269596
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D14" type="RayCast2D" parent="WallDetection"]
+rotation = -0.537422
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D3" type="RayCast2D" parent="WallDetection"]
+rotation = -0.765437
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D15" type="RayCast2D" parent="WallDetection"]
+rotation = -1.05204
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D4" type="RayCast2D" parent="WallDetection"]
+rotation = -1.29531
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D5" type="RayCast2D" parent="WallDetection"]
+rotation = -1.88856
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D6" type="RayCast2D" parent="WallDetection"]
+rotation = -2.44909
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D13" type="RayCast2D" parent="WallDetection"]
+rotation = -2.44909
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D7" type="RayCast2D" parent="WallDetection"]
+rotation = -2.90076
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D8" type="RayCast2D" parent="WallDetection"]
+rotation = -3.47797
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D12" type="RayCast2D" parent="WallDetection"]
+rotation = -3.8604
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D9" type="RayCast2D" parent="WallDetection"]
+rotation = -4.45285
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D10" type="RayCast2D" parent="WallDetection"]
+rotation = -5.46277
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
+
+[node name="RayCast2D11" type="RayCast2D" parent="WallDetection"]
+rotation = -4.79284
+enabled = true
+cast_to = Vector2( 50, 180 )
+script = ExtResource( 9 )
 
 [node name="icon" type="Sprite" parent="."]
 rotation = 1.5708
@@ -40,7 +137,6 @@ wake_up_sound = NodePath("../../wake_up")
 
 [node name="FollowPlayer" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
-speed = 70.0
 
 [node name="UpdatePath" type="Timer" parent="StateMachine/FollowPlayer"]
 wait_time = 0.6

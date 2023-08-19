@@ -36,7 +36,7 @@ texture = ExtResource( 1 )
 position = Vector2( 23.4142, 0.396851 )
 
 [node name="FireRate" type="Timer" parent="."]
-wait_time = 0.159
+wait_time = 0.14
 one_shot = true
 
 [node name="anim" type="AnimationPlayer" parent="."]

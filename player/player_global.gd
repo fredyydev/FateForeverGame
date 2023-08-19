@@ -1,6 +1,7 @@
 extends Node
 
 var player_position: Vector2
+var player_health: float
 var current_weapon := "PlayerShotty"
 var settings_path := "user://settings/"
 #Fun fact: HAD stands for "Here's All the Data". Now, did you catch the reference?

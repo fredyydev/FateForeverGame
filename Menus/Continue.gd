@@ -13,7 +13,6 @@ func load_game():
 		var loaded_data = file.get_var()
 		file.close()
 		
-		player_stats.health = loaded_data["health"]
 		player_stats.sg_ammo = loaded_data["sg_ammo"]
 		player_stats.ar_ammo = loaded_data["ar_ammo"]
 		player_stats.has_ar = loaded_data["has_ar"]

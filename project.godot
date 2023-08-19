@@ -122,7 +122,7 @@ boot_splash/image="res://fredyy.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.0980392, 0.0705882, 0.101961, 1 )
 config/icon="res://ff_icon.png"
-config/windows_native_icon="res://ff_icon_fyJ_icon.ico"
+config/windows_native_icon="res://ff_icon2.ico"
 
 [autoload]
 

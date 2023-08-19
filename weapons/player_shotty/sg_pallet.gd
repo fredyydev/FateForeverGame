@@ -15,10 +15,10 @@ func _physics_process(_delta):
 		if collider is Entity:
 			#if collides with enemy, enemy takes damage
 			collider.take_damage(damage)
-			while blood_amount < 3:
+			while blood_amount < 4:
 				var blood: RigidBody2D = blood_scene.instance()
 				collider.owner.add_child(blood)
-				blood.z_index = -2
+				blood.z_index = 2
 				blood.global_position = collider.global_position 
 				blood.rotation_degrees = rotation_degrees
 				blood.play("default")
@@ -27,6 +27,7 @@ func _physics_process(_delta):
 				var rng = RandomNumberGenerator.new()
 				rng.randomize()
 				blood_amount += rng.randf_range(0,4)
+				blood.scale = Vector2(1,1) * rng.randf_range(2,5) 
 		
 		if not collider.is_in_group("bullets"):
 			queue_free()

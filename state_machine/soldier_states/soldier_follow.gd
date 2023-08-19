@@ -24,17 +24,20 @@ func exit():
 func _on_UpdatePath_timeout():
 	if not owner.get_tree().has_group("Navigation"):
 		return
-	nav_path = nav2D.get_simple_path(soldier.global_position, pl_pos) 
+	rng.randomize()
+	nav_path = nav2D.get_simple_path(soldier.global_position, 
+	pl_pos + Vector2.ONE * rng.randf_range(10, 1000)) 
 
 func move_to_path():
 	#don't run if the current tree doesn't have a nav mesh
 	if not owner.get_tree().has_group("Navigation"):
 		return
 	var _move_direction: Vector2
-	for _index in (nav_path.size()):
+	#for _index in (nav_path.size()):
 		#This entity will always move towards the first point in the path
 		#Once we're close enough, we remove zero, so the next point becomes zero
 		#And so we keep moving towards the player
+	if nav_path.size() > 1:
 		if soldier.global_position.distance_to(nav_path[0]) > 15:
 			_move_direction = soldier.global_position.direction_to(nav_path[0])
 		else:

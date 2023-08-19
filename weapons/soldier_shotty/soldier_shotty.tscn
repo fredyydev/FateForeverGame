@@ -130,7 +130,6 @@ bus = "Enemy"
 anims/shot = SubResource( 1 )
 
 [node name="gun_flare" type="Light2D" parent="."]
-enabled = false
 texture = ExtResource( 6 )
 color = Color( 1, 0.905882, 0.290196, 1 )
 energy = -6.40378e-09
